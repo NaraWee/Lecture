@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>표 관련 태그들</title>
+        <style>/* 스타일 태그 */
+        /* 웹 문서 각 요소의 모양, 색상을 설정하는 태그 */
+        /* 테이블 구조 색상 걸정 */
+        thead {background: orange; color: green;}
+        tbody {background: mintcream;}
+        tfoot {background: wheat;}
+        </style>
+
+    </head>
+    <body>
+        <!--
+             table 태그 : 웹 문서 상의 표를 나타내기 위한 태그
+             <table>
+                 <tr> : 표의 행을 나타내는 태그
+                  <th> : 표의 머리글(가장 윗줄)을 나타내는 태그
+                  <td> : 표의 내용(각 컬럼)을 나타내는 태그
+              </table>
+        -->
+        <h1>기본 테이블 만들기</h1>
+        <table border="1">
+            <caption><b>웹 브라우저의 종류</b></caption> <!-- 테이블의 제목, 설명-->
+            <tr>
+                <th>웹브라우저 명</th>
+                <th>제조사</th>
+                <th>홈페이지</th>
+            </tr>
+            <tr>
+                <td>구글 크롬</td>
+                <td>Google</td>
+                <td>http://www.google.com</td>
+            </tr>
+            <tr>
+                <td>인터넷 익스플로러</td>
+                <td>MS</td>
+                <td>http://www.microsoft.com</td>
+            </tr>
+            <tr>
+                <td>파이어 폭스</td>
+                <td>Mozila</td>
+                <td>http://www.mozila.com</td>
+            </tr>
+            <tr>
+                <td>사파리</td>
+                <td>Apple</td>
+                <td>http://www.apple.com</td>
+            </tr>
+        </table>
+
+        <figure>
+            <!-- 테이블이나 이미지의 영역을 정하여 해당 요소의 설명을 달아주는 태그 -->
+            <figcaption>
+                dd 태그와 동일하게 여러 줄로 표현이 가능한 설명을 작성할 수 있다.
+            </figcaption>
+            <figcaption>
+                여러 개도 가능하다.
+            </figcaption>
+        </figure>
+
+        <!--
+            <td>의 태그 속성을 활용하여 테이블의 각 칸을 (즉, 행, 열을) 병합할 수 있다.
+            rowspan : 세로 행을 합칠 때사용
+            colspan :가로 열을 합칠 때 사용
+
+            주의사항
+            합치려는 열이나 행의 개수가 테이블의 형태에 맞게 설정하여야 한다.
+        -->
+
+        <h1>표의 행과 열 합치기</h1>
+        <h3>회원 정보</h3>
+        <table border="1">
+            <tr>
+                <td align="center" rowspan="2" colspan="2"
+                    width="140px" height="150px">사진</td>
+                <td width="80px">이름</td>
+                <td width="200px"></td>
+            </tr>
+            <tr>
+                <td>연락처</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td width="70px" height="50px">주소</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td height="130px">자기소개</td>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h1>테이블 구조 확인하기</h1>
+        <table border="1">
+            <!--
+                <thead> : 테이블의 머리글 영역을 설정
+                <tbody> : 테이블의 내용 영역 설정
+                <tfoot> : 테이블의 바닥글 영역을 설정
+            -->
+            <thead> <!-- 테이블의 머리글 -->
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>홍길동</td>
+                    <td>10</td>
+                    <td>서울시 강남구</td>
+                </tr>
+                <tr>
+                    <td>김유신</td>
+                    <td>20</td>
+                    <td>경기도 수원</td>
+                </tr>
+                <tr>
+                    <td>신사임당</td>
+                    <td>30</td>
+                    <td>서울시 역삼동</td>
+                </tr>
+            </tbody>
+            <tfoot> <!-- 테이블의 바닥글 -->
+                <tr>
+                    <td colspan="2">총 인원</td>
+                    <td>3명</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <br><br><br>
+        <br><br><br>
+
+        <a href="index.html">처음페이지로 이동하기</a>
+
+    </body>
+</html>
