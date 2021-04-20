@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>폰트 관련 스타일</title>
+  
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        /* font-fmaily */
+        #ff-1 {
+            font-family: "궁서체";
+        }
+
+        #ff-2 {
+            font-family: "바탕체";
+        }
+
+        #ff-3 {
+            font-family: "없는 글꼴","돋음체";
+        }
+
+        /* 웹 폰트 사용하기 */
+        #web-font {
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        /* 폰트 크기 설정 */
+
+        #size1{
+            font-size : 30px; /* px : pixel 표시장치(모니터)에 따라서 상대적인 크기를 가진다. */
+        }
+
+        #size2{
+            font-size : 2em; /* 해당폰트의 대문자 M의 너비를 기준으로 한다.*/
+        }
+
+        #size3{
+            font-size : 150%; /* 기본 글꼴의 크기에 대하여 상대적인 값을 가진다. */
+        }
+
+        /* 폰트 크기 설정 */
+        #fw1 {
+            font-weight: bold;
+        }
+
+        #fw2 {
+            font-weight: lighter;
+        }
+
+        #fw3 {
+            font-weight: bolder;
+        }   
+
+        /* 영문 대문자 작게 표현하기 */
+        #fv {
+            font-variant: small-caps;
+        }
+
+        /* 폰트 기울임 글꼴 */
+        #fs1 {
+            font-style: italic;
+        }
+
+        #fs2 {
+            font-style: oblique;
+        }
+
+        /* 글꼴 스타일 한번에 적용하기 */
+        #f1 {
+            font : 16px/25px "궁서체";
+        }
+
+        #f2 {
+            font : italic bold 20px/30px "고딕체";
+        }
+    </style>
+</head>
+<body>
+    <h1>폰트 관련 스타일</h1>
+    <hr>
+    <h3>font-family 속성 : 문자열의 글꼴을 지정할 때 사용</h3>
+    <pre>선택자 { font-family: 글꼴이름 }</pre>
+    <p id="ff-1">글꼴 변경 테스트1</p>
+    <p id="ff-2">글꼴 변경 테스트2</p>
+    <p id="ff-3">글꼴 변경 테스트3</p>
+
+    <h3>웹 폰트 사용하기</h3>
+    <p>
+        웹 폰트 예제 사이트
+        <a href="http://fonts.google.com" target="_blank">
+            구글 웹 폰트 제공 사이트
+        </a>
+
+        <p id="web-font">웹에서 제공하는 폰트를 적용했어요~~~~^^7</p>
+    </p>
+
+    <hr>
+
+    <h3>글꼴의 크기를 스타일 속성을 통해 설정하기</h3>
+    <pre>선택자 { font-size: 크기; }</pre>
+    <ul>
+        <li id="size1">고정 크기 px 설정하기</li>
+        <li id="size2">가변 크기 em 설정하기</li>
+        <li id="size3">가변 크기 % 설정하기</li>
+    </ul>
+
+    <hr>
+
+    <h3>글꼴 굵기 설정하기</h3>
+    <pre>
+        선택자 { font-weight : normal | bold | bolder | ligther | 100 | 400 | 900}
+    </pre>
+    <ul>
+        <li id="fw1">원래 폰트보다 굵게</li>
+        <li id="fw2">원래 폰트보다 가늘게</li>
+        <li id="fw3">원래 폰트보다 더 굵게</li>
+    </ul>
+
+    <hr>
+
+    <h3>font-variant : 영대문자를 작게 표현하기 </h3>
+    <pre>선택자 { font-variant: 속성값; }</pre>
+    <p>I LOVE JAVA</p>
+    <p id="fv">i love coffee</p>
+
+    <hr>
+
+    <h3>font-style : 폰트의 기울기 설정</h3>
+    <pre>선택자 { font-style : normal | italic | oblique; }</pre>
+    <ul>
+        <li id="fs1">이텔릭 글꼴</li>
+        <li id="fs2">오벨릭 글꼴</li>
+    </ul>
+
+    <hr>
+
+    <h3>font : 폰트 관련 대부분의 설정을 한번에 적용시킨다.</h3>
+    <pre>
+        선택자 { font : font-style
+                       font-variant
+                       font-weight
+                       font-size/line-height
+                       font-family
+               }
+    </pre>
+    <ul>
+        <li id="f1">글꼴 스타일 한 번에 적용하기1</li>
+        <li id="f2">글꼴 스타일 한 번에 적용하기2</li>
+    </ul>
+
+    <br><br><br>
+    <br><br><br>
+    <a href="index.html">처음페이지로 돌아기기</a>
+</body>
+</html>

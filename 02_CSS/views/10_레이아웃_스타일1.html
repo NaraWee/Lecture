@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 스타일1</title>
+    <style>
+        /* 고정 크기와 가변 크기 */
+        .test-size {
+            border: 2px solid black;
+            height:200px;
+        }
+
+        #test1 { width: 800px;}
+        #test2 { width:50%}
+
+        /* 블럭 요소를 인라인 요소로*/
+        .block {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            color : white;
+        }
+
+        .area1 {background: lightgreen;}
+        .area2 {background: brown;}
+        .area3 {background: orange;}
+        .area4 {background: olive;}
+        .area5 {background: blueviolet;}
+
+        .block-test {display: inline;}
+        .block-test2{ display: inline-block;}
+        .block-test3{display: block;}
+    </style>
+</head>
+<body>
+    <h1>레이아웃 스타일 1</h1>
+    <h3>width, height</h3>
+    <p>해당 요소가 차지하는 가로, 세로 길이</p>
+    <h4>고정 크기</h4>
+    <div id="test1" class="test-size"></div>
+    <h4>가변 크기</h4>
+    <div id="test2" class="test-size"></div>
+
+    <h3>화면 배치 방법</h3>
+    <p>블럭 속성의 태그를 인라인 속성으로 또는 <br>
+       인라인 속성의 태그를 블럭 속성으로 각각 변경할 수 있다.
+    </p>
+
+    <div class="block block-test area1"> 첫번째 영역 </div>
+    <div class="block block-test area2"> 두번째 영역 </div>
+    <div class="block block-test area3"> 세번째 영역 </div>
+    <div class="block block-test area4"> 네번째 영역 </div>
+    <div class="block block-test area5"> 다섯번째 영역 </div>
+
+    <h4>블럭 태그를 인라인 속성과 블럭 속성을 혼합여 
+        각각의 영역은 inline으로 내용은 block요소로 적용하기
+    </h4>
+    <div class="block block-test2 area1"> 첫번째 영역 </div>
+    <div class="block block-test2 area2"> 두번째 영역 </div>
+    <div class="block block-test2 area3"> 세번째 영역 </div>
+    <div class="block block-test2 area4"> 네번째 영역 </div>
+    <div class="block block-test2 area5"> 다섯번째 영역 </div>
+
+    <h4>인라인 속성의 태그를 블럭 속성으로 변경하기</h4>
+    <p>
+        인라인 속성 태그를 블럭 속성으로 변경하면<br>
+        width, height 속성을 부여할 수 있으나
+        내용이 블럭 요소로 변경되어 버린다.
+    </p>
+    <span class="block block-test3 area1"> 첫번째 영역 </span>
+    <span class="block block-test3 area2"> 두번째 영역 </span>
+    <span class="block block-test3 area3"> 세번째 영역 </span>
+    <span class="block block-test3 area4"> 네번째 영역 </span>
+    <span class="block block-test3 area5"> 다섯번째 영역 </span>
+    
+    <br><br><br>
+    <br><br><br>
+
+    <a href="index.html">처음으로 돌아가기</a>
+</body>
+</html>
