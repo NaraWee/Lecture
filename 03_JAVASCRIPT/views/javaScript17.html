@@ -23,11 +23,12 @@
     	var data = Array();
     	
     	function  input(){
-
+			var input = document.getElementById("strInput").value;
+			data.push(input);
     	}   
     	
     	function printTest(){
-        
+			document.getElementById('print2').innerHTML = data;
     	}
     </script>   
 	

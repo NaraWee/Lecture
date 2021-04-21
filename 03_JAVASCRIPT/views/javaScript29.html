@@ -22,17 +22,17 @@
             	<th>나이</th>
             	<th>주소</th>
             </tr>
-            <tr>
+            <tr align='center'>
             	<td name="name"></td>
             	<td name="age"></td>
             	<td name="addr"></td>
             </tr>
-            <tr>
+            <tr align='center'>
             	<td name="name"></td>
             	<td name="age"></td>
             	<td name="addr"></td>
             </tr>
-            <tr>
+            <tr align='center'>
             	<td name="name"></td>
             	<td name="age"></td>
             	<td name="addr"></td>
@@ -64,6 +64,11 @@
 			}
 
 			console.log(students);
+			for(var i = 0; students.length; i++) {
+				document.getElementsByName("name")[i].innerHTML = students[i]["name"];
+				document.getElementsByName("age")[i].innerHTML = students[i]["age"];
+				document.getElementsByName("addr")[i].innerHTML = students[i]["addr"];
+			}
     	}
 	</script>
 	

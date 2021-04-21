@@ -26,8 +26,21 @@
 	
 	<script>
 		function print2Test(){
-			
+			var arr = document.getElementById('stringla4').innerHTML.split(" ");
+			var remove = document.getElementById("remove").value;
+			var add = document.getElementById("add").value;
 		
+			for(var i = 0; i < arr.length; i++) {
+
+				if(arr[i] == remove) {
+					arr.slice(i,i+1);
+				}
+				if(arr[i] == add) {
+					arr.push(add);
+				}
+			}
+
+			document.getElementById("print4").innerHTML = arr;
 		}
 	</script>
 	
