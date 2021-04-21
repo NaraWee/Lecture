@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>클러저</title>
+</head>
+<body>
+    <h1>클로저</h1>
+
+    <h3>지역변수의 스코프</h3>
+    <p>함수 내부에 선언된 변수는 함수 밖에서 사용할 수 없다.</p>
+    <button onclick="test1();">실행확인</button>
+    <script>
+        function test1() {
+            var name = '홍길동';
+            // alert(name);
+        }
+
+        alert(name);
+    </script>
+
+    <h3>클로저</h3>
+    <p>지역변수는 함수가 실행될 때 생성되고 함수가 종료될때 사라진다.<br>
+       하지만 함수를 리턴하는 함수(클로저)를 이용하면 규칙을 위반할 수 있다.
+    </p>
+    <button onclick="callCloser();">실행확인</button>
+    <script>
+        function test2(name) {
+            var output = "Hello " + name + "님";
+
+            return function(){
+                return output;
+            }
+        }
+        function callCloser(){
+            var input = prompt();
+            var str = test2(input);
+            console.log(str());
+
+            var str = (test2(input))();
+            console.log(str);
+        }
+    </script>
+
+    <h3>여러 개의 클로저</h3>
+    <button onclick="test4(this);" id="js">JavaScript</button>
+    <button onclick="test4(this);" id="jq">JQuery</button>
+    <script>
+        function test3(subject){
+            var out = "오늘 배울 내용은 " + subject + "입니다.";
+
+            return function() {
+                return out;
+            }
+        }
+
+        function test4(button){
+            var btn1 = document.getElementById("js");
+            var btn2 = document.getElementById("jq");
+
+            if(button == btn1){
+                btn1.style.display = "none";
+                btn2.style.display = "block";
+                alert(test3(btn1.innerHTML)());
+            } else {
+                btn1.style.display = "block";
+                btn2.style.display = "none";
+                alert(test3(btn2.innerHTML)());
+            }
+        }
+    </script>
+
+    <h4>카운터 만들기</h4>
+    <p>전역변수를 이용한 카운터와 클로저를 이용한 카운터 비교</p>
+    <button onclick="g_doCounter();">카운터(전역변수)</button>
+    <button onclick="changeVal(prompt('변경값'));">카운터 값 변경</button>
+    <button onclick="doCounter(prompt('수입력'));">카운터</button>
+
+    <div>
+        <span id="g"></span>
+        <span id="c"></span>
+    </div>
+
+    <script>
+        var cnt = 0; // 전역변수
+        var g = document.getElementById("g"); // 전역변수
+        var c = document.getElementById("c"); // 전역변수
+
+        function changeVal(su){ // 전역변수의 값을 변경하는 함수
+            cnt = su;
+        }
+
+        function g_doCounter(){ // 전역변수의 값을 이용해서 값을 증가시키는 함수
+            g.innerHTML = "<h1>" + (++cnt) + "</h1>";
+        }
+
+        function c_doCounter(){
+            var count = 0; // 지역변수
+            return function(su){
+                c.innerHTML = "<h1>" + (++count) + " : " + su + "</h1>";
+            }
+        }
+
+        var doCounter = c_doCounter();
+
+    </script>
+</body>
+</html>

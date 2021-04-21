@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .area {
+            height: 150px;
+            background: lightgray;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>캡슐화와 상속</h1>
+    <h3>캡슐화</h3>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+    <script>
+        function GirlGroup(gn, mc, m){
+            // 속성
+            var groupName = gn;
+            var memberCount = mc;
+            var members = m;
+
+            // setter / getter
+            this.getGroupName = function(){
+                return groupName;
+            }
+
+            this.getMemberCount = function(){
+                return memberCount;
+            }
+
+            this.getMembers = function(){
+                return members;
+            }
+
+            this.setGroupName = function(gn){
+                groupName = gn;
+            }
+
+            this.setMemberCount = function(mc){
+                if(members.length != mc) {
+                    throw '멤버 수가 틀립니다. 다시 확인해주세요';
+                } else{
+                    memberCount = mc;
+                }
+            }
+
+            this.setMembers = function(m){
+                members = m;
+            }
+        }
+
+        function test1(){
+
+            var gn = '소녀시대';
+            var mc = 9;
+            var m = ['태연','효연','수영','제시카','윤아','유리','서현','티파니','써니'];
+
+            var girlsGeneration = new GirlGroup(gn, mc, m);
+            console.log(girlsGeneration);
+
+            // 그룹 이름을 바로 접근하면 undefined로 나온다. ==> 객체 속성에 접근 불가
+            // console.log(girlsGeneration.groupName);
+
+            // 객체 속성에 값을 바꿨다.
+            // -> girlsGeneration 객체에 groupName이라는 속성을 추가
+            girlsGeneration.groupName = "방탄소년단";
+
+            // 추가한 groupName의 속성명을 출력
+            console.log(girlsGeneration.groupName);         // 방탄소년단
+
+            // getter를 이용해서 girlsGeneration객체에 담긴 값을 출력
+            console.log(girlsGeneration.getGroupName());    // 소녀시대
+
+            // 인원수를 틀리게 변경해보자
+            // girlsGeneration.setMemberCount(4);
+
+            // 안써줘도 됨
+            var area1 = document.getElementById("area1");
+
+            with(girlsGeneration) {
+                area1.innerHTML += "그룹 : " + getGroupName() + "<br>";
+                area1.innerHTML += "멤버수 : " + getMemberCount() + "<br>";
+                area1.innerHTML += "멤버 : " + getMembers() + "<br>";
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>상속</h3>
+    <button onclick="test2();">실행확인</button>
+    <script>
+        function Book(t, p, dr){
+
+            var title = t;
+            var price = p;
+            var discountRate = dr;
+
+            this.getTitle = function(){
+                return title;
+            }
+            this.getPrice = function(){
+                return price;
+            }
+            this.getDiscountRate = function(){
+                return discountRate;
+            }
+            this.setTitle = function(t){
+                title = t;
+            }
+
+            this.setPrice = function(p){
+                if(p < 0){
+                    throw '가격이 어떻게 마이너스냐? 사면 돈줄래?';
+                } else {
+                    price = p;
+                }
+            }
+
+            this.setDiscountRate = function(dr){
+                if(dr < 0 ){
+                    throw '할인유리 마이너스면 말이 되니? 멍청아!!!';
+                } else{
+                    discountRate = dr;
+                }
+            }
+        }
+
+        // 객체들이 공유하는 prototype에 판매가격을 구하는 로직 추가
+        Book.prototype.getSellPrice = function() {
+            return this.getPrice() - (this.getPrice() * this.getDiscountRate());
+        }
+
+        function test2(){
+            var book1 = new Book('자바의 정석',35000,0.15);
+
+            alert("title : " + book1.getTitle() + "\n" + book1.getSellPrice());
+        }
+    </script>
+
+    <br>
+
+    <button onclick="test3();">상속 확인</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function Novel(t,p,dr,tp){
+            this.base = Book;
+            this.base(t,p,dr);
+            var type = tp;
+
+            this.getType = function(){
+                return type;
+            }
+
+            this.setType = function(tp){
+                type = tp;
+            }
+        }
+
+        // 프로토타입끼리 복사
+        // 생성자 밖에서 복사해야한다. 그렇지 않으면 정의가 안된다.
+        Novel.prototype = Book.prototype;
+
+        function test3(){
+            var novel = new Novel('나무',30000,0.2,'소설');
+
+            alert("title : " + novel.getTitle() + "\n" + "sellprice : " + novel.getSellPrice());
+
+            var area2 = document.getElementById("area2");
+
+            area2.innerHTML += "novel instanceof Novel : " + (novel instanceof Novel) + "<br>";
+            area2.innerHTML += "novel instanceof Book : " + (novel instanceof Book) + "<br>";
+        }
+
+        // 프로토타입 : 객체간에 공유할려고 하는 속성값을 prototype에 추가를 해서
+        //              프로토타입의 복사를 이용해서 공유해서 사용할 수 있다.
+    </script>
+</body>
+</html>

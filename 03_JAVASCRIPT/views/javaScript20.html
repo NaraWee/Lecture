@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>함수2</title>
+    <style>
+        p {
+            width: 500px;
+            height: 100px;
+            background: lightgray;
+            border : 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>함수2</h1>
+    <h3>매개변수로 함수 전달</h3>
+    <p>함수도 하나의 자료형이기 때문에 매개변수로도 전달 가능하다.</p>
+    <div id="area1" class="area"></div>
+    <script>
+        function callFunctionTenTimes(otherFunction) {
+            alert('hello');
+
+            for(var i = 0; i < 10; i++) {
+                otherFunction(i);
+            }
+        }
+
+        callFunctionTenTimes(function(i) {
+            var area1 = document.getElementById("area1");
+
+            area1.innerHTML += (i + 1) + "함수호출<br>";
+        });
+    </script>
+
+    <h4>선언적 함수를 매개변수로 전달</h4>
+    <button onclick="callJustFunction(justFunction)">실행하기</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function callJustFunction(otherFunction) {
+        for(var i = 10; i > 0; i--) {
+            otherFunction(i);
+        }
+            alert('펑!펑!펑! 폭파되었습니다. 바이러스 침투 시작!!');
+        }
+
+        function justFunction(i) {
+            if(i > 5) {
+                alert(i + "번만 더 클릭하면 자동으로 폭발합니다.");
+            } else if(i > 3){
+                alert('마지막 경고입니다 '
+                + i + "번만 더 클릭하면 자동으로 폭발합니다.");
+            } else if(i > 1) {
+                alert('난 분명 말했어요 ' + i + '번만 더 클릭하면 자동으로 폭발합나다.');
+            } else {
+                alert('한번만 더 클릭하면 폭발합니다.')
+            }
+        }
+    </script>
+
+    <h4>익명함수를 리턴하는 함수</h4>
+    <input type="text" name="" id="name">
+    <button onclick="callFunction();">실행확인</button>
+    <div id="area3" class="area"></div>
+    <script>
+        function returnFunction(){
+            var name = document.getElementById("name").value;
+
+            var f = function(){
+                alert(name + '님 환영합니다');
+            }
+
+            return f;
+        }
+
+        function callFunction(){
+            returnFunction()();
+        }
+    </script>
+</body>
+</html>

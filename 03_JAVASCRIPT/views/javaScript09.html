@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>변수와자료형</title>
+    <script>
+        // 전역변수의 선언
+        // 자동으로 window 객체의 필드가 된다.
+        str = "전역변수";
+        // 함수 외부에 선언한 변수는 var를 붙여도 전역변수이다.
+        var str2 = "var전역변수";
+
+        // windown 객체가 로드될때(시작하자마자) 동작할 이벤트 
+        window.onload = function(){
+
+            var str = '지역변수';
+
+            // 지역변수가 우선권을 가진다.
+            console.log(str);
+            // 전역변수에 접근하기 위해서는 window. 혹은 this.을 붙여야한다.
+            console.log(window.str);
+            console.log(this.str);
+
+            var str3 = '난 뭘까요?';
+
+            console.log('테스트 :'+str3);
+            console.log(window.str3);
+            console.log(this.str3);
+
+            what = '정체가 뭘까';
+            showWhat();
+        }
+
+        function showWhat(){
+            console.log(what);
+        }
+    </script>
+    <style>
+        .area1 {
+            border : 1px solid black;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h3>변수 선언</h3>
+    <p>함수 내부에서 var 변수명; let 변수명; 으로 선언하면 지역변수가 된다.<br>
+       함수 내부에서 변수명;으로 선언하거나, 함수 밖에서 변수명; 혹은 var 변수명;
+       으로 선언하면 전역변수가 된다.<br>
+       지역변수와 전역변수가 동일한 이름인 경우 함수 내부에서 변수명을 호출하면 
+       지역변수가 우선권을 가지기 때문에<br> 전역변수 사용시 window.변수명 혹은 this.변수명으로 표현하여
+       지역변수와 구분한다.<br>
+       전역변수는 해당 window내에서 어디든 사용할 수 있으며, 지역변수는 해당 함수내에서만 사용 가능하다.
+    </p>
+
+    <hr>
+
+    <h3>자료형</h3>
+    <p>자바스크립트에서는 자료형별로 변수 타입이 지정되지 않고 리터럴에 의해 자료형이 결정된다.</p>
+    <button onclick="testType();">자료형 테스트</button>
+    <br>
+    <br>
+    <div id="area1" class="area1"></div>
+    <script>
+        function testType(){
+            // 문자열 변수
+            var name = "유승제";
+            var name1 = '유승제1';
+
+            // 숫자 변수
+            var age = 20;
+
+            // 논리 변수
+            var check = true;
+
+            // 배열 변수
+            var hobby = ["축구","농구","야구"];
+
+            // 객체 변수
+            var user = {
+                name1:'유승제', age1:20,id1:'user01'
+            }
+
+            // 함수 변수
+            var testFunction = function testFunction(num1,num2){
+                                  var sum = num1 + num2;
+                                  alert(sum);
+                               }
+            // 정의되지 않은 변수
+            var apple;
+
+            console.log(typeof(name) + " : " + name);
+            console.log(typeof(name1) + " : " + name1);
+            console.log(typeof(age) + " : " + age);
+            console.log(typeof(check) + " : " + check);
+            console.log(typeof(hobby) + " : " + hobby);
+            console.log(typeof(user) + " : " +user);
+            console.log(typeof(testFunction) + " : " + testFunction);
+            console.log(typeof(apple) + " : " + apple);
+
+            var area1 = document.getElementById("area1");
+
+            area1.innerHTML += "문자열 변수 : " + name + "<br>";
+            area1.innerHTML += "숫자 변수 : " + age + "<br>";
+            area1.innerHTML += "논리 변수 : " + check + "<br>";
+            area1.innerHTML += "배열 : " + hobby + "<br>";
+            area1.innerHTML += "배열인덱스[0]" + hobby[0] + "<br>";
+            area1.innerHTML += "배열인덱스[1]" + hobby[1] + "<br>";
+            area1.innerHTML += "배열인덱스[2]" + hobby[2] + "<br>";
+            area1.innerHTML += "객체 : " + user.name1 + ", " + user.age1 + ", " + user.id1 +"<br>";
+            area1.innerHTML += "함수 :" + testFunction + "<br>";
+            area1.innerHTML += "정의되지 않은 변수 : " + apple + "<br>";
+        }
+    </script>
+
+    <hr>
+
+    <h3>동적 타입 테스트</h3>
+    <p>자바스크립에서 변수는 타입이 지정되는 것이 아닌, 동적으로 타입이 결정된다.</p>
+    <button onclick="testDynamicType();">실행확인</button>
+    <div id="area2"></div>
+    <script>
+        function testDynamicType(){
+           
+            var area2 = document.getElementById("area2");
+
+            var testVariable = 123;
+       
+            console.log(typeof(testVariable) + " : " + testVariable);
+
+            testVariable = "안녕하세요";
+
+            console.log(typeof(testVariable) + " : " + testVariable);
+
+            testVariable = [0,1,2,3];
+
+            console.log(typeof(testVariable) + " : " + testVariable);
+
+        }
+    </script>
+</body>
+</html>
