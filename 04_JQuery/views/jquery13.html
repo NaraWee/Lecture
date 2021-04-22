@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .item {
+            width:200px;
+            height:200px;
+            display:inline-block;
+            margin:5px;
+        }
+        #item1 {
+            background:yellowgreen;
+        }
+        #item2 {
+            background:cyan;
+        }
+        #item3 {
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 생성 및 제거</h1>
+    <h3>삽입메소드 part1</h3>
+    <p>$(A).appendTo(B) : A를 B의 요소 내 뒷부분에 추가<br>
+        $(A).prependTo(B) : A를 B의 요소 내 앞부분에 추가<br>
+        $(A).insertAfter(B) : A를 B의 요소 뒤에 추가<br>
+        $(A).insertBefore(B) : A를 B의 요소 앞에 추가</p>
+    <h1 id="test1"><label>가즈아~~~~</label></h1>
+    <h1 id="test2"><label>쑤아리 질러~~~</label></h1>
+    <h1 id="test3"><label>가즈아~~~~~~</label></h1>
+    <h1 id="test4"><label>쑤아리 질러~~~</label></h1>
+    <script>
+        $(function(){
+            var interval = setInterval(function(){
+                $("<label>집으로!!!</label>").appendTo($("#test1"));
+                $("<label>MIC check one tow!</label>").prependTo($("#test2"));
+                $("<label>집으로!!</label>").insertAfter($("#test3"));
+                $("<label>MIC check one tow!</label>").insertBefore($("#test4"));
+                setTimeout(function(){
+                    clearInterval(interval);
+                },5000);
+            },1000);
+        });
+    </script>
+
+    <hr>
+
+
+    <h3>삽입메소드 part2</h3>
+   <p>$(A).append(B) : B를 A요소 내 뒷부분에 추가<br>
+        $(A).prepend(B) : B를 A요소 내 앞부분에 추가<br>
+        $(A).after(B) : B를 A의 요소 뒤에 추가<br>
+        $(A).before(B) : B를 A의 요소 앞에 추가</p>
+    <h1 id="test5"><label>상어가족 : </label></h1>
+    <h1 id="test6"><label>상어가족 : </label></h1>
+    <h1 id="test7"><label>상어가족 : </label></h1>
+    <h1 id="test8"><label>상어가족 : </label></h1>
+    <script>
+        $(function(){
+            var str = "뚜루 두 뚜두~";
+            var arr = ["아기상어! ","귀여운","바닷속","아기 상어!"];
+            var arr2 = ["아빠 상어!","힘이 센", "바닷속", "아빠 상어!"];
+
+            var cnt = 0;
+            var interval = setInterval(function(){
+                $("#test5").append("<label>" + arr[cnt] + str + "</label>");
+                $("#test6").prepend("<label>" + arr2[cnt] + str + "</label>");
+                $("#test7").after("<label>" + arr[cnt] + str + "</label>");
+                $("#test8").before("<label>" + arr2[cnt] + str + "</label>");
+
+                cnt++;
+
+                setTimeout(function(){
+                    clearInterval(interval);
+                },3000);
+            },1000);
+        });
+    </script>
+
+    <hr>
+
+    <h3>객체 복사와 제거 메소드</h3>
+    <p>clone() : html내부에 있는 요소를 복사하는 메소드</p>
+    <div id="clonetest">
+        <div id="item1" class="item">
+            <button class="copy">복사하기</button>
+            <button class="delete">제거하기</button>
+        </div>
+        <div id="item2" class="item">
+            <button class="copy">복사하기</button>
+            <button class="delete">제거하기</button>
+        </div>
+        <div id="item3" class="item">
+            <button class="copy">복사하기</button>
+            <button class="delete">제거하기</button>
+        </div>
+    </div>
+    <div id="result"></div>
+    <br>
+        <script>
+            $(function(){
+                $(".copy").click(function(){
+                    // 이벤트까지 같이 복사하는 경우 true, 이벤트 복사 안하는 경우 false
+                    // default값이 false
+                    $(this).parent().clone(true).appendTo($("#result"));
+                });
+
+                $(".delete").click(function() {
+                    // $(this).parent().remove();
+                    // $(this).parent().detach();
+                    $(this).parent().empty();   // 위에꺼는 삭제하지만 empty()는 요소 안을 비우는 메소드
+                });
+            });
+        </script>
+</body>
+</html>

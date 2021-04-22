@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #test2 {
+            width: 300px;
+            height: 300px;
+            background: orangered;
+        }
+
+        #test3 {
+            width: 300px;
+            height: 300px;
+            background: orangered;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <h3>이벤트 관련 속성</h3>
+    <button onclick="test1(event);">실행확인</button>
+    <script>
+        function test1(event) {
+            console.log(event);
+        }
+    </script>
+    <hr>
+    <h3>이벤트 연결 종류</h3>
+    <h4>bind() : 현재 존재하는 문서 객체만 이벤트 연결<br>
+        unbind() : bind()로 연결된 이벤트 제거
+    </h4>
+    <h1 id="test1">마우스를 올려보세요</h1>
+    <script>
+        $(function() {
+            $("#test1").bind("mouseenter",function() {
+                $(this).css({"background":"black","color":"white"});
+            }).bind("mouseleave",function() {
+                $(this).css({"background":"white","color":"black"});
+            });
+
+            $("#test1").bind('click',function(){
+                $(this).unbind('mouseenter').unbind('mouseleave').css({"background":"white","color":"pink"});
+            });
+        });
+    </script>
+
+    <h4>on() : bind() 대신에 on()으로 대체된다.<br>
+        off() : on()으로 연결된 이벤트 제거
+    </h4>
+    <div id="test2">기본상태</div>
+    <script>
+        $(function() {
+            $("#test2").on({'mouseenter':function() {
+                $(this).css("background","yellowgreen").text("마우스 올라감");
+            },'mouseleave':function() {
+                $(this).css("background","yellow").text("마우스 내려감");
+            },'click':function() {
+                $(this).off('mouseenter').off('mouseleave').css("background","orangered").text("기본값");
+            }});
+        });
+    </script>
+
+    <br>
+
+    <div id="test3">기본상태</div>
+    <script>
+        // 이벤트 연결 시 데이터도 전달할 수 있다.
+        $(function() {
+            $("#test3").on('click',{name:"홍길동"},function(event) {
+                console.log(event);
+                alert(event.data.name + "님 환영합니다!");
+            });
+        });
+    </script>
+
+    <br>
+    <div id="wrap">
+        <h2>Header</h2>
+    </div>
+    <script>
+        $(function() {
+            $(document).on('click','h2',function(){
+                var length = $("h2").length;
+                var targetHTML = $(this).html();
+                console.log(length);
+                console.log(targetHTML);
+                $("#wrap").append("<h2>" + targetHTML + "-" + length + "</h2>");
+            });
+        });
+    </script>
+
+    <hr>
+
+    <h3>one() 메소드</h3>
+    <p>이벤트를 한 번만 연결할 때 사용한다.</p>
+    <h1 id="test4">클릭하세요</h1>
+    <script>
+        $(function() {
+            $("#test4").one("click",function() {
+                alert("이벤트발생");
+            });
+        });
+    </script>
+</body>
+</html>
