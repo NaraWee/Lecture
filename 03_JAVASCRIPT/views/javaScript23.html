@@ -109,32 +109,24 @@
    </div>
    
    <script>
-        
+      
+      var input = "";
       function buttonClick(button){
-            
-            var zero = document.getElementById("zero").innerHTML;
-            var one = document.getElementById("one").innerHTML;
-            var two = document.getElementById("two").innerHTML;
-            var three = document.getElementById("three").innerHTML;
-            var four = document.getElementById("four").innerHTML;
-            var five = document.getElementById("five").innerHTML;
-            var six = document.getElementById("six").innerHTML;
-            var seven = document.getElementById("seven").innerHTML;
-            var eight = document.getElementById("eight").innerHTML;
-            var nine = document.getElementById("nine").innerHTML;
-            var left = document.getElementById("left").innerHTML;
-            var right = document.getElementById("right").innerHTML;
-            var percent = document.getElementById("percent").innerHTML;
-            var devide = document.getElementById("devide").innerHTML;
-            var clear = document.getElementById("clear").innerHTML;
-            var astric = document.getElementById("astric").innerHTML;
-            var minus = document.getElementById("minus").innerHTML;
-            var dot = document.getElementById("dot").innerHTML;
-            var equal = document.getElementById("equal").innerHTML;
-            var plus = document.getElementById("plus").innerHTML;
 
-            document.getElementById("result").innerHTML += button;
-         
+            if(button == clear) {
+               input = "";
+            } else if(button != equal) {
+               input += button.innerHTML;
+            }
+
+            document.getElementById("result").innerHTML = input;
+            
+            if(button == equal) {
+               var value = eval(input);
+               document.getElementById("result").innerHTML = value;
+               input = "";
+            }
+
       }
    
    </script>
