@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment/>
+	<entry key="selectEncryptedPwd">
+        SELECT
+               A.MEMBER_PWD
+          FROM TBL_MEMBER A
+         WHERE A.MEMBER_STATUS = 'Y'
+           AND A.MEMBER_ID = ?
+	</entry>
+	
+	<entry key="selectLoginMember">
+        SELECT
+               A.MEMBER_NO
+             , A.MEMBER_ID
+             , A.NICKNAME
+             , A.PHONE
+             , A.EMAIL
+             , A.ADDRESS
+             , A.ENROLL_DATE
+             , A.MEMBER_ROLE
+             , A.MEMBER_STATUS
+          FROM TBL_MEMBER A
+         WHERE A.MEMBER_STATUS = 'Y'
+           AND A.MEMBER_ID = ?
+	</entry>
+	
+	<entry key="insertMember">
+        INSERT 
+          INTO TBL_MEMBER A
+        (
+          A.MEMBER_NO
+        , A.MEMBER_ID
+        , A.MEMBER_PWD
+        , A.NICKNAME
+        , A.PHONE
+        , A.EMAIL
+        , A.ADDRESS
+        )
+        VALUES
+        (
+          SEQ_MEMBER_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ? 
+        , ?
+        , ?
+        )
+	</entry>
+</properties>
+
+
+
+
+
+
+
+
+
+
