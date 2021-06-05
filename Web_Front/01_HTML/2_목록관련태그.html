@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>목록 관련 태그들</title>
+    </head>
+    <body>
+        <!-- ul(Unordered List) : 순서가 없는 목록 -->
+        <h1>순서가 없는 목록</h1>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ul>
+        <p>앞에 나타내는 기호는 블릿 기호라고 하며 CSS설정을 통해 변경할 수 있다.</p>
+
+        <!-- ol(Orderd Liist) : 순서가 있는 목록 -->
+        <h1>순서가 있는 목록</h1>
+        <h3>화면 구현 수업 단원</h3>
+        <ol>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>
+            순서가 있는 목록 태그의 숫자는 속성을 이용하여 변경할 수 있다.<br>
+            기본값은 숫자로 되어 있으며, 1부터 시작한다.
+        </p>
+        
+        <!-- ol(Ordered List) : 순서가 있는 목록 태그 속성 변경하기 -->
+        <h2>속성 변경 변수</h2>
+        <h3>영문 소문자로 표기하기</h3>
+        <ol type="a">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>type 속성의 'a'의 값은 표기를 영소문자로 변경한다.</p>
+
+        <h3>영문 대문자로 표기하기</h3>
+        <ol type="A">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>type 속성의 'A'의 값은 표기를 영대문자로 변경한다.</p>
+
+        <h3>로마숫자 소문자로 표기하기</h3>
+        <ol type="i">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>type 속성의 'i'의 값은 표기를 로마숫자 소문자로 변경한다.</p>
+
+        <h3>로마숫자 대문자로 표기하기</h3>
+        <ol type="I">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>type 속성의 'I'의 값은 표기를 로마숫자 대문자로 변경한다.</p>
+
+        <h3>시작값 변경하기</h3>
+        <ol type="1" start="5">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>start 속성을 이용하면 시작값을 변경할 수 있다.</p>
+
+        <h3>역순으로 목록 표기하기</h3>
+        <ol reversed="reversed">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+        <p>reversed 속성을 이용하면 역순으로 목록을 표기할 수 있다.</p>
+
+        <h1>설명 목록 태그</h1>
+        <!--
+            dl(definition List) : 설명 목록 태그
+            dt(definition Title) : 용어의 제목
+            dd(definition Data) : 용어의 설명
+        -->
+        <h1>설명 목록 태그</h1>
+        <dl>
+            <dt>이곳은 목록의 제목을 적는 곳입니다.</dt>
+            <dd>이곳은 목록의 설명을 적는 곳입니다.</dd>
+            <dd>여러줄 작성할 수 있습니다.</dd>
+            <dt>또 다른 목록의 제목을 적어 새로운 목차를 만들 수 있습니다.</dt>
+            <dd>새로운 목록의 설명도 적을 수 있습니다.</dd>
+            <dd>역시 여러 줄이 가능합니다.</dd>
+            <dd>이렇게 목록 별로 설명에 필요한 행을 다르게 지정할 수 있습니다.</dd>
+        </dl>
+
+        <br><br><br>
+        <br><br><br>
+
+        <a href="index.html">처음 페이지로 이동하기</a>
+    </body>
+</html>

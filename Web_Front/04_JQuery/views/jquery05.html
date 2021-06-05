@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>함수 형태의 필터 선택자</h1>
+    <h3>:nth-child()필터 선택자</h3>
+    <table border="1">
+        <tr>
+            <td>이름</td>
+            <td>혈액형</td>
+            <td>지역</td>
+        </tr>
+        <tr>
+            <td>유승제</td>
+            <td>BBBBB형</td>
+            <td>관악구</td>
+        </tr>
+        <tr>
+            <td><a>이해승</a></td>
+            <td>O형</td>
+            <td>신림</td>
+        </tr>
+        <tr>
+            <td>황준호</td>
+            <td>O형</td>
+            <td>신도림</td>
+        </tr>
+        <tr>
+            <td>차진서</td>
+            <td>B형</td>
+            <td>낙성대</td>
+        </tr>
+        <tr>
+            <td>김해인</td>
+            <td>AB형</td>
+            <td>서초구</td>
+        </tr>
+        <tr>
+            <td>김현빈</td>
+            <td>B형</td>
+            <td>안산시</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">총원</td>
+            <td style="text-align: center;">6</td>
+        </tr>
+    </table>
+    <script>
+        $(function() {
+            // 수열번 째 위치하는 태그 <- 인덱스 말고 순서로 찾는다
+            $("tr:nth-child(2n)").css("background","yellowgreen");
+            $("tr:nth-child(2n-1)").css("background","orange");
+
+            // n번째 위치하는 객체 선택
+            $("tr:eq(0)").css({"background":"black","color":"white"});
+
+            // n번째를 초과하는 객체 선택
+            $("tr:gt(6)").css("background","lightgray");
+
+            // n번째 미만에 위치하는 객체 선택
+            $("tr:lt(7)").css("font-size","1.5em");
+
+            // 특정 문자열을 포함하는 객체 선택
+            $("td:contains('O형')").css("color","white");
+
+            // 특정 태그를 가지고 있는 객체 선택
+            $("td:has(a)").css("color","blue");
+
+            // 선택자와 일치하지 않는
+            $("td:not(:contains('유승제'))").css("color","lightgray");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>객체 실습 문제</h1>
+	
+	문제2. <br>
+	다음 입력 버튼 클릭시 학생정보를 3명 저장받아(for문 사용) <br>
+	테이블을 생성하여 출력하는 코드를 작성하세요. <br>
+	단, 학생 정보는 객체로 처리하여 저장후 테이블에 입력하고<br>
+	모든 학생 정보는 객체 배열에 저장하여 console.log(objectArr)로 출력시 <br>
+	객체 배열 정보가 console.log에 나와야 함 <br>
+	
+
+	<div align="center">
+        <table id="memberInfo" border="1" style="width:500px; height:300px;">
+            <tr>
+            	<th>이름</th>
+            	<th>나이</th>
+            	<th>주소</th>
+            </tr>
+            <tr align='center'>
+            	<td name="name"></td>
+            	<td name="age"></td>
+            	<td name="addr"></td>
+            </tr>
+            <tr align='center'>
+            	<td name="name"></td>
+            	<td name="age"></td>
+            	<td name="addr"></td>
+            </tr>
+            <tr align='center'>
+            	<td name="name"></td>
+            	<td name="age"></td>
+            	<td name="addr"></td>
+            </tr>
+        </table>
+		<label style="color:red;">학생정보 테이블</label><br>
+		<button onclick="student();">입력 및 출력</button>
+	</div>  
+	
+	<script>
+
+		var students = [];
+
+		function Student(name, age, addr){
+			this.name = name;
+			this.age = age;
+			this.addr = addr;
+		}
+
+    	function student(){
+        	
+			for(var i = 0; i < 3; i++) {
+				var student = new Student(prompt((i+1) + "번째 학생의 이름을 입력하세요"),
+							  parseInt(prompt((i+1) + "번째 학생의 나이를 입력하세요")),
+							  prompt((i+1) + "번째 학생의 주소를 입력하세요")
+				);
+				
+				students.push(student);
+			}
+
+			console.log(students);
+			for(var i = 0; students.length; i++) {
+				document.getElementsByName("name")[i].innerHTML = students[i]["name"];
+				document.getElementsByName("age")[i].innerHTML = students[i]["age"];
+				document.getElementsByName("addr")[i].innerHTML = students[i]["addr"];
+			}
+    	}
+	</script>
+	
+
+	
+</body>
+</html>

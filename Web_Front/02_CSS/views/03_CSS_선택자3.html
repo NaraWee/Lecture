@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 선택자 3</title>
+    <style>
+        /* 일반 구조 선택자 */
+        /* 형제 관계 태그 중 첫번째 태그 선택하기 */
+        #test1 p:first-child{
+            background: chocolate;
+            color: white;
+        }
+
+        /* 형제 관계 태그 중 마지막 태그 선택하기 */
+        #test1 *:last-child {
+            background: lightskyblue;
+            color: cadetblue;
+        }
+
+        /* 형제 관계 태그 중 n번째 태그 선택하기 */
+        #test1 p:nth-child(2n) {
+            background: hotpink;
+            color: lavender;
+        }
+
+        /* 형제 관계 태그 중 뒤에서부터 n번째 태그 선택하기 */
+        #test1 p:nth-last-child(4) {
+            background: beige;
+            color: darkslateblue;
+        }
+
+        /* 형태 구조 선택자 */
+        /* 형제 관계 태그 중 첫번째 p태그 선택하기 */
+        #test2 p:first-of-type {
+            background: yellow;
+            color: navy;
+        }
+        
+        /* 형제 관계 태그 중 마지막 p태그 선택하기 */
+        #test2 p:last-of-type {
+            background: cornsilk;
+            color: crimson;
+        }
+
+        /* 형제 관계 태그 중 뒤에서 n번째 p태그 선택하기 */
+        #test2 p:nth-last-of-type(3) {
+            background: lightskyblue;
+            color: tomato
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 선택자 3</h1>
+    <hr>
+    <h2>일반 구조 선택자</h2>
+    <p>특정한 위치에 있는 요소(태그)를 선택할 수 있는 선택자</p>
+    <div id="test1">
+        <p>테스트 1</p>
+        <p>테스트 2</p>
+        <p>테스트 3</p>
+        <p>테스트 4</p>
+        <p>테스트 5</p>
+        <pre>테스트 6</pre>
+    </div>
+
+    <h2>형태 구조 선택지</h2>
+    <p>특정한 위치의 태그를 선택할 때 사용한다.</p>
+    <div id="test2">
+        <p>테스트 1</p>
+        <p>테스트 2</p>
+        <p>테스트 3</p>
+        <p>테스트 4</p>
+        <p>테스트 5</p>
+        <pre>테스트 6</pre>
+    </div>
+</body>
+</html>

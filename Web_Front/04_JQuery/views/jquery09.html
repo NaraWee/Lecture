@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .wrap * {
+            border: 1px solid lightgray;
+            display: block;
+            padding: 5px;
+            margin: 15px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>순회(탐색)메소드</h1>
+    <h3>sideways 메소드</h3>
+    <div class="wrap">div (parent)
+        <p>p</p>
+        <span>span</span>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+    </div>
+    <script>
+        $(function() {
+            // 선택된 요소와 같은 레벨에 있는 요소를 리턴
+            // 인자가 있는 경우 인자와 일치하는 요소 리턴
+            $("h2").siblings().css({"color":"red","border":"2px solid red"});
+            $("h2").siblings("p").css({"color":"orange","border":"2px solid orange"});
+
+            // 선택된 요소의 같은 레벨의 형제들 중에 선택된 요소 다음 한개의 요소를 리턴한다.
+            $("h2").next().css({"color":"blue","border":"2px solid blue"});
+               
+            // 선택된 요소의 같은 레벨의 형제들 중 선택된 요소 다음 모든 요소를 리턴한다.
+            $("h2").nextAll().css({"font-size":"2em"});
+
+            // 선택된 요소의 같은 레벨의 인자 범위까지의 모든 요소를 리턴
+            $("h2").nextUntil("p").css("border","dashed");
+
+            // 선택된 요소부터 같은 레벨의 형제 중 요소 이전의 한 개 요소를 리턴한다.
+            $("h2").prev().css("background","yellow");
+
+            // 선택된 요소부터 같은 레벨의 형제 중 요소 이전의 모든 요소를 리턴한다.
+            $("h2").prevAll().css({"background":"cyan","color":"red"});
+
+            // 선택된 요소의 같은 레벨의 형제 요소 중 인자로 전달된 요소 이전의 요소를 리턴
+            $("h2").prevUntil("p").css("border","dotted");
+        });
+    </script>
+</body>
+</html>

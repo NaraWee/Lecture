@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .area {
+            height: 100px;
+            background: lightgray;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체 관련 키워드</h1>
+    <h3>instanceof 키워드</h3>
+    <p>해당 객체가 어떠한 함수를 통해 생성되었는지 확인할 때 쓴다.</p>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+    <script>
+        function Dog(name){
+            this.name = name;
+        }
+
+        function test1(){
+            var myDog = new Dog('뎅이');
+            
+            var yourDog = {name : '양양'};
+
+            var area1 = document.getElementById("area1");
+
+            area1.innerHTML += "myDog instanceof Dog : " + (myDog instanceof Dog) + "<br>";
+            area1.innerHTML += "yourDog instanceof Dog : " + (yourDog instanceof Dog) + "<br>";
+            area1.innerHTML += "myDog instanceof 'Number' : " + (myDog instanceof Number) + "<br>";
+            area1.innerHTML += "myDog instanceof 'String' : " + (myDog instanceof String) + "<br>";
+            area1.innerHTML += "myDog instanceof 'Boolean' : " + (myDog instanceof Boolean) + "<br>";
+        }
+    </script>
+
+    <hr>
+
+    <h3>new 키워드</h3>
+    <button onclick="test2();">new 확인하기</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function Duck(firstName, lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        function test2() {
+            
+            var duck1 = new Duck("Mc","Donald");
+            console.log(duck1);
+
+            var area2 = document.getElementById("area2");
+
+            area2.innerHTML += "첫 번째 오리의 full name은 " + duck1.firstName
+                             + duck1.lastName + "입니다. 꽥꽥!!<br>";
+            // new를 사용하지 않아도 에러는 발생하지 않고, 대신 undefined 값으로 나온다.
+            var duck2 = Duck("Donald","Trump");
+            console.log(duck2);
+
+            // 이걸로 출력하면 에러 발생
+            // area2.innerHTML += "두 번째 오리의 full name은 " + duck2.firstName 
+            //                  + duck2.lastName +"입니다. 꽥꽥!!";
+
+            // new를 사용하지 않고 생성자를 통해 객체를 만들면 전역변수가 된다. (틀은 사용됨)
+            area2.innerHTML += "두 번째 오리의 full name은 " + window.firstName 
+                             + this.lastName +"입니다. 꽥꽥!!";
+        }
+    </script>
+
+</body>
+</html>

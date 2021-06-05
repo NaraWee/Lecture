@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>입력 양식 필터 선택자</h1>
+    <h3>checkbox의 상태에 대한 선택자</h3>
+    <label for="">취미 : </label>
+    <input type="checkbox" name="hobby" id="game" value="game">
+    <label for="game">게임</label>
+    <input type="checkbox" name="hobby" id="movie" value="movie">
+    <label for="movie">영화</label>
+    <input type="checkbox" name="hobby" id="music" value="music">
+    <label for="music">음악</label>
+    <script>
+        $("input:checkbox").change(checkChange);
+
+        function checkChange(){
+            console.log($(this).prop("checked"));
+
+            if($(this).prop("checked")){
+                $(this).css({"width":"100px","height":"100px"});
+            } else{
+                $(this).css({"width":"15px","height":"15px"});
+            }
+        }
+    </script>
+
+    <h3>select > option 태그의 상테에 대한 선택자</h3>
+    <select id="national">
+        <option value="한국" selected>한국</option>
+        <option value="미국">미국</option>
+        <option value="일본">일본</option>
+        <option value="중국">중국</option>
+    </select>
+    <label>선택한 나라 : </label><input type="text" id="result">
+    <script>
+
+        $(selectChange);
+
+        $("#national").change(selectChange);
+        function selectChange() {
+            var value = $("option:selected").val();
+
+            $("#result").val(value);
+        }
+    </script>
+
+    <hr>
+
+    <h3>input 상태에 대한 선택자</h3>
+    <label>활성화 텍스트 상자 : </label><input type="text" required><br>
+    <label>비활성화 텍스트 상자 : </label><input type="text" disabled><br>
+    <label>활성화 버튼 : </label><input type="button" value="활성화"><br>
+    <label>비활성화 버튼 : </label><input type="button" value="비활성화" disabled><br>
+    <script>
+        $(function() {
+            $("input:enabled").css("background","yellowgreen");
+            $("input:disabled").css("background","red");
+        });
+    </script>
+
+    <hr>
+
+    <h3>필터 선택자</h3>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>혈액형</th>
+            <th>지역</th>
+        </tr>
+        <tr>
+            <th>유승제</th>
+            <th>BBBBB형</th>
+            <th>관악구</th>
+        </tr>
+        <tr>
+            <th>이해승</th>
+            <th>O형</th>
+            <th>신림</th>
+        </tr>
+        <tr>
+            <th>황준호</th>
+            <th>O형</th>
+            <th>신도림</th>
+        </tr>
+        <tr>
+            <th>차진서</th>
+            <th>B형</th>
+            <th>낙성대</th>
+        </tr>
+        <tr>
+            <th>김해인</th>
+            <th>AB형</th>
+            <th>서초구</th>
+        </tr>
+        <tr>
+            <th>김현빈</th>
+            <th>B형</th>
+            <th>안산시</th>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">총원</td>
+            <td style="text-align: center;">6</td>
+        </tr>
+    </table>
+    <script>
+        $(function() {
+            $("tr:odd").css("background","pink");   // 홀수번째 인덱스
+            $("tr:even").css("background","purple");   // 짝수번째 인덱스
+            $("tr:first").css("background","black").css("color","white");
+            $("tr:last").css("background","yellow").css("color","darkgray");
+
+        })
+    </script>
+</body>
+</html>

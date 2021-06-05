@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .area {
+            border : 1px solid red;
+            height: 100px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>HTML태그에 접근하기</h1>
+    <h3>아이디로 접근</h3>
+    <div id="area1" class="area"></div>
+    <button onclick="accessId();">아이디로 접근</button>
+    <script>
+        function accessId(){
+            var area1 = document.getElementById("area1");
+            area1.style.backgroundColor = "yellow";
+            area1.innerHTML += "아이디로 접근 성공<br>";
+        }
+    </script>
+
+    <hr>
+
+    <h3>태그명으로 접근</h3>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+    <button onclick="accessTagName();">태그명으로 접근</button>
+    <script>
+        function accessTagName(){
+            var list = document.getElementsByTagName("li");
+            console.log(list);
+            var changeColor = 50;
+
+            // for in 문을 사용하면 콘솔에 에러가 발생한다.
+            // list의 프로퍼티를 다 조회해서 가져오기때문에 마지막에 있는 length라는 속성에는
+            // style이라는 속성이 없기때문에 에러가 발생하는 것이다.
+            // 필요한 범위에서만 조회를 할려면 아래의 for(var i = 0...) 구문을 사용
+            for(var i in list){
+                list[i].style.backgroundColor = "rgb(130,220," + changeColor + ")";
+                changeColor += 50;
+            }
+
+
+            // for(var i = 0; i < list.length; i++){
+            //     list[i].style.backgroundColor = "rgb(130,220," + changeColor + ")";
+            //     changeColor += 50;
+            // }
+        }
+    </script>
+
+    <br>
+
+    <h3>name으로 접근</h3>
+    <form>
+        <fieldset>
+			<legend>취미</legend>
+			<table>
+				<tr>
+					<td><input type="checkbox" name="hobby" value="game" id="game"><label for="game">게임</label></td>
+					<td><input type="checkbox" name="hobby" value="misic" id="misic"><label for="misic">음악감상</label></td>
+					<td><input type="checkbox" name="hobby" value="movie" id="movie"><label for="movie">영화보기</label></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="hobby" value="reading" id="reading"><label for="reading">독서</label></td>
+					<td><input type="checkbox" name="hobby" value="trevle" id="trevle"><label for="trevle">여행</label></td>
+					<td><input type="checkbox" name="hobby" value="exercise" id="exercise"><label for="exercise">운동</label></td>
+				</tr>
+			</table>
+		</fieldset> 
+    </form>
+    <div id="area2" class="area"></div>
+    <div id="area3" class="area"></div>
+    <button onclick="accessName();">name으로 접근</button>
+    <script>
+        function accessName() {
+            var hobby = document.getElementsByName("hobby");
+            var checkClass = document.getElementsByClassName("area");
+            console.log(checkClass);
+
+            console.log(hobby);
+            console.log(hobby.length);
+
+            var checkItem = "";
+
+            for(var i in hobby){
+               // debugger;
+                if(hobby[i].checked == true){
+                    checkItem += hobby[i].value + "선택함<br>";
+                }
+            }
+
+            document.getElementById("area2").innerHTML = checkItem;
+        }
+    </script>
+</body>
+</html>
