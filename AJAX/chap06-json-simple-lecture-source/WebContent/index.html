@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1 aling="center">ajax 요청 후 stream을 이용한 json응답(json-simple library 사용)</h1>
+	
+	<h3>1-1. 테이터 전송 없이 json반환</h3>
+	<button id="send-get-1">전송</button>
+	<script>
+		$("#send-get-1").click(function() {
+			$.ajax({
+				url:"/chap06/receive/simple",
+				type:"get",
+				success:function(data,textStatus,xhr){
+					console.table(data);
+				},
+				error:function(xhr,status,error){
+					console.log(error);
+				}
+			});
+		});
+	</script>
+	
+	<h3>1-2. 테이터 전송 없이 jsonArray 반환</h3>
+	<button id="send-get-2">전송</button>
+	<script>
+		$("#send-get-2").click(function() {
+			$.ajax({
+				url:"/chap06/receive/array",
+				type:"get",
+				success:function(data,textStatus,xhr){
+					console.table(data);
+				},
+				error:function(xhr,status,error){
+					console.log(error);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
