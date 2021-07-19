@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean 등록 -->
+	<!-- 
+		 Container는 bean 목록에서 bean을 찾을 때 고유한 이름으로 사용한다.
+		 만약 id를 생략하면 클래스명의 앞 글자를 소문자로 하는 naming rule로 자동 bean의 id를 성정한다.
+		 class 속성은 bean으로 만들 객체의 타입을 풀 패키지명으로 작성한다.	
+	 -->
+	<bean id="member" class="com.greedy.section01.xmlconfig.MemberDTO">
+		<!-- 생성자 쪽으로 값을 전달할 때 index와 name속성을 사용한다. -->
+		<!-- =new MemberDTO(1,"user01","pass01","홍길동") 이랑 같은거 -->
+		<constructor-arg index="0" value="1"/>
+		<constructor-arg name="id" value="user01"/>
+		<constructor-arg index="2"><value>pass01</value></constructor-arg>
+		<constructor-arg name="name"><value>홍길동</value></constructor-arg>
+	</bean>
+</beans>
