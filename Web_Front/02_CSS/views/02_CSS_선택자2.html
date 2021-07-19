@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 기본 선택자 2</title>
+    <style>
+        /* 속성 선택자 */
+        div[name=name2] {background: lightgray;}
+
+        div[name~=name1] {
+            background: blue;
+        }
+        div[class|=div] {
+            background: lightgreen;
+        }
+        div[name^=name]{
+            background: lightskyblue;
+        }
+        div[class$=class]{
+            background: tomato;
+        }
+        div[class*='-']{
+            background: lightsteelblue;
+        }
+
+        /* 자손 선택자 */
+        #test1>h4 {
+            background: gold;
+        }
+
+        #test1>#testul>li{
+            background: peachpuff;
+        }
+
+        /* 후손 선택자 */
+        #test1> h4{
+            color: cornsilk;
+        }
+
+        /* 동위 선택자 */
+        #div-test1 {
+            background: peru;
+        }
+
+        #div-test2+div {
+            background: cyan;
+        }
+
+        /* #div-test1~div{
+            background: navy;
+            color: wheat;
+        } */
+
+        /* 반응선택자 */
+        /* 반응하기 전 */
+        #active-test, #hover-test {
+            /* 반응 전의 초기 스타일 */
+            width : 300px;
+            height : 300px;
+            background: ivory;
+            margin: 10px;
+        }
+
+        /* 반응했을 떄 */
+        #active-test:active {
+            background: navy;
+            color: lemonchiffon;
+        }
+
+        #hover-test:hover {
+            background: mediumaquamarine;
+            color: olive;
+        }
+
+        /* 상태선택자 */
+        input[type='checkbox']:checked{
+            width: 20px;
+            height: 20px;
+        }
+
+        /* focus 선택자 */
+        #userid:focus, #userpwd:focus{
+            border: 1px solid limegreen;
+            background: lightgoldenrodyellow;
+        }
+
+        /* 사용 가능 여부 */
+        option:disabled{
+            background: darkred;
+            color: white
+        }
+
+        option:enabled{
+            background: lightgoldenrodyellow;
+            color: lightseagreen;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>CSS 기본 선택자2</h1>
+    <hr>
+    <h2>속성 선택자</h2>
+    <p>
+        기본 선택자 뒤에 []를 사용하여<br>
+        특정 속성과 해당 속성값을 통해 스타일을 <br>
+        적용할 때 사용한다.
+    </p>
+    <pre>
+        <pre>
+            선택자[속성=속성값]{ . . . } 형식으로 사용한다.
+            = : 속성값과 같을 때
+            ~= : 특정 단어를 속성값으로 가질 때 (띄어쓰기로 구분한다)
+            |= : 특정 단어를 속성값으로 가질 때 ("" 로 구분한다) div이거나 div로 시작하는
+            ^= : 속성값이 특정 단어로 시작할 때
+            $= : 속성값이 특정 단어로 끝날 때
+            *= : 속성값이 특정 단어를 포함할 때
+        </pre>
+    </pre>
+
+    <div name="name1" class="div-class2">div1</div>
+    <div name="name2" class="div-class">div2</div>
+    <div name="me3" class="div-class1">div3</div>
+    <div name="name4" class="div-class">div4</div>
+    <div name="name5" class="div-class">div5</div>
+
+    <hr>
+    <h2>자손 선택자와 후손 선택자</h2>
+    <p>자손 선택자 : 바로 아래의 태그, 요소
+       후손 선택자 : 하위에 존재하는 모든 택, 요소들
+    </p>
+    <pre>
+        자손 선택자 : 부모선택자>자손선택자{....}
+        후손 선택자 : 선조선택자 후선선택자{....}
+    </pre>
+
+    <div id="test1"> <!-- 부모 -->
+        <h4>나는 자손입니다.</h4> <!-- 자손 -->
+        <h4>나도 자손입니다.</h4>
+        <ul id="testul"> 나는 자손 리스트 입니다.
+            <li>나는 ul의 자손임과 동시에 div의 후손입니다</li> <!-- 후손 -->
+            <li>나는 ul의 자손임과 동시에 div의 후손입니다</li>
+            <li>나는 ul의 자손임과 동시에 div의 후손입니다</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>동위 선택자</h2>
+    <p>동위 선택자는 동급 관계에 있는 형제 요소들을 선택하고자 할 때 사용한다.</p>
+    <pre>
+        선택자A+선택자B{....} : 바로 뒤에 있는 요소를 선택할 때
+        선택자A-선택자B{....} : 뒤의 모든 요소를 선택할 때
+    </pre>
+
+    <div id="div-test1">DIV - TEST 1</div>
+    <div id="div-test2">DIV - TEST 2</div>
+    <div id="div-test3">DIV - TEST 3</div>
+    <div id="div-test4">DIV - TEST 4</div>
+    <div id="div-test5">DIV - TEST 5</div>
+
+    <hr>
+    <h2>반응 선택자</h2>
+    <p>사용자의 움직임(마우스 클릭 등)을 통해 달라지는 스타일을 적용할 때 사용한다.</p>
+    <pre>
+        선택자:active{....} 사용자가 마우스를 클릭했을 때
+        선택자:hover{...} 마우스 커서가 해당 요소 위에 올라갔을 때
+    </pre>
+
+    <div id="active-test">Active 테스트입니다.</div>
+    <div id="hover-test">Hover 테스트입니다.</div>
+
+    <hr>
+    <h2>상태 선택자</h2>
+    <p>입력 양식에 따라 변화하는 스타일을 적용할 때 사용한다.</p>
+    <pre>
+        input:checked{...} 체크 상태 여부에 따라 스타일을 적용할 때
+    </pre>
+
+    <input type="checkbox" name="fruits" id="gam"><label for="gam">감</label>
+    <input type="checkbox" name="fruits" id="apple"><label for="apple">사과</label>
+    <input type="checkbox" name="fruits" id="banana"><label for="banana">바나나</label>
+
+    <p>focus(초점)가 맞춰진 상태인지 확인하여 스타일 적용도 가능하다.</p>
+    <label>아이디 : </label>
+    <input type="text" id="userid" placeholder="ID를 입력하세요!" autofocus>
+
+    <br>
+
+    <label>비밀번호 : </label>
+    <input type="password" id="userpwd" placeholder="비밀번호를 입력하세요!"">
+
+    <p>사용 가능 여부에 따른 스타일 적용하기</p>
+    입장가능 나이(20~40)
+    <select>
+        <option value="10" disabled>10대</option>
+        <option value="20">20대</option>
+        <option value="30">30대</option>
+        <option value="40">40대</option>
+        <option value="50" disabled>50대</option>
+    </select>
+
+    <br><br><br>
+    <br><br><br>
+
+    <a href="index.html">처음 페이지로 이동하기</a>
+
+</body>
+</html>

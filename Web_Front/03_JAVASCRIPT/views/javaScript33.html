@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>지오 로케이션</h1>
+    <h3>현재 위치 가져오기</h3>
+    <p>getCurrentPosition()을 호출하여 사용자의 현재 위치를 가져온다.<br>
+       응답은 빠르지만 정확도는 낮다.
+    </p>
+    <button onclick="test1();">실행확인</button>
+    <div id="map" style="width:500px;height:400px"></div>
+    <script>
+       function test1(){
+          navigator.geolocation.getCurrentPosition(function(position){
+             alert("위도 : " + position.coords.latitude + "\n"+
+                   "경도 : " + position.coords.longitude);
+             
+             var lat = position.coords.latitude;
+             var lon = position.coords.longitude;
+             
+             location.href="http://map.daum.net/link/map/나의위치," + lat + "," + lon;
+             
+          });
+          
+       }    
+    </script>
+</body>
+</html>

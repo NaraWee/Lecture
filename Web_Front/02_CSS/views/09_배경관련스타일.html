@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>배경 관련 스타일</title>
+    <style>
+        body {
+            background-color : beige;
+
+            /* background-color : #000;
+            background-color : rgb(255,0,0);
+            background-color : rgba(255,0,0,0.7); */
+        }
+
+        #div-bg{
+            width: 50%;
+            background-color: lightgreen;
+        }
+
+        /* 배경 영역 설정하기 */
+        .div-test{
+            background-color: white;
+            margin: 30px;
+            padding: 20px;
+            width: 20%;
+            border: 5px dashed black;
+            /* float: left; */
+        }
+
+        #div1{ background-clip: border-box;} 
+        #div2{ background-clip: padding-box;}
+        #div3{ background-clip: content-box;}
+
+        /* 배경 이미지 설정하기 */
+        #div-img {
+            width: 70%;
+            height: 800px;
+            border: 1px solid black;
+            background-image: url(../resources/image/bgsample.PNG);
+
+             /*background-repeat: no-repeat; 반복없음
+            background-repeat: repeat; 기본값
+            background-repeat: repeat-x 가로 반복만
+            background-repeat: repeat-y 세로 반복만
+            */
+            background-repeat: no-repeat;
+
+            background-size: 80% 80%; 
+
+            background-position :50% 50%;
+            /*background-position : left top;
+            background-position : right top;
+            background-position : center top;
+            background-position : left bottom;
+            background-position : right bottom;
+            background-position : center bottom;
+            background-position : [left | right | center] 
+                                    [top | bottom | center];
+            background-position : 200px 200px;*/
+
+            /* background-attachment: fixed; */
+            background-attachment: scroll;
+        }
+    </style>
+</head>
+<body>
+    <h1>배경 관련 스타일</h1>
+    <h3>배경색 적용하기</h3>
+    <pre>body { background-color : 색상 }</pre>
+
+    <hr>
+
+    <h3>div 배경 적용하기</h3>
+    <p>
+        div 영역을 설정한 뒤에 배경색을 지정하기 위해서는 <br>
+        div에 별도로 배경생을 적용해야 한다.
+    </p>
+    <div id="div-bg">
+        대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 대법원장과 대법관이 아닌 법관은 대법관회의의 동의를 얻어 대법원장이 임명한다.
+    </div>
+
+    <hr>
+
+    <h3>배경의 적용 범위 선택하기</h3>
+    <p>
+        배경의 영역을 설정할 때, 배경 색상만 설정할 수 있는 것이 아니라<br>
+        background-clip 속성을 통해 배경 범위도 설정할 수 있다.
+    </p>
+
+    <div id="div1" class="div-test">
+        대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 대법원장과 대법관이 아닌 법관은 대법관회의의 동의를 얻어 대법원장이 임명한다.
+    </div>
+
+    <div id="div2" class="div-test">
+        대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 대법원장과 대법관이 아닌 법관은 대법관회의의 동의를 얻어 대법원장이 임명한다.
+    </div>
+
+    <div id="div2" class="div-test">
+        대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 대법원장과 대법관이 아닌 법관은 대법관회의의 동의를 얻어 대법원장이 임명한다.
+    </div>
+
+    <hr>
+
+    <h3>배경 이미지 적용하기</h3>
+    <p>
+        background-image 속성을 활용하여 배경 사진을 넣을 수 있다.<br>
+        사진의 크기에 따라 반복 여부를 설정할 수 있으며
+        배경 이미지가 배경의 크기보다 크거나 작을 경우 이미지를 자를 수도 있다.
+        이때 사용하는 속성이 각각 background-repate와 background-size이다.
+
+    </p>
+
+    <div id="div-img"></div>
+
+    <br><br><br>
+    <br><br><br>
+    <a href="index.html">처음으로 돌아가기</a>
+</body>
+</html>

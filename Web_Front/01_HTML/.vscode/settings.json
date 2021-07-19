@@ -1,0 +1,9 @@
+{
+    "powermode.enabled": true,
+    "powermode.enableShake": false,
+    "powermode.presets": "fireworks",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 1,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Default Dark+"
+}

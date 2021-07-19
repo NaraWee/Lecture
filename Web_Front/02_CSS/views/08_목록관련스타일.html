@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>목록 관련 스타일</title>
+    <style>
+        /* 순서가 없는 목록 스타일 */
+        #default-circle { list-style-type : disc;} 
+        #circle { list-style-type: circle;}
+        #square { list-style-type: square;}
+        #none-bullet { list-style-type: none;}
+
+        /* 순서가 있는 목록 스타일 */
+        #ol-style-1{ list-style-type: decimal;}
+        #ol-style-2{ list-style-type: decimal-leading-zero;}
+        #ol-style-3{ list-style-type: lower-roman;}
+        #ol-style-4{ list-style-type: upper-roman;}
+        #ol-style-5{ list-style-type: lower-alpha;}
+        #ol-style-6{ list-style-type: upper-alpha;}
+
+        /* 기호 대신 이미지 넣기 */
+        #image-bullet {
+            margin-left: 20px;
+            list-style-image: url("../resources/image/iconsample.PNG");
+        }
+    </style>
+</head>
+<body>
+    <h1>목록 관련 스타일</h1>
+    <hr>
+
+    <h3>순서가 없는 목록 스타일</h3>
+    <pre>선택자 { list-style-type: disc | circle | square | none; }</pre>
+    <h4>꽉 채운 원 모양 블릿 기호(default)</h4>
+        <ul id="default-circle">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ul>
+
+        <h4>속이 빈 원 모양 블릿 기호</h4>
+        <ul id="circle">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ul>
+
+        <h4>사각형 모양 블릿 기호</h4>
+        <ul id="square">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ul>
+
+        <h4>블릿 기호 제거하기</h4>
+        <ul id="none-bullet">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ul>
+
+        <hr>
+
+        <h3>순서가 있는 목록의 스타일 지정하기</h3>
+        <pre>
+            선택자 { list-style-type: 
+                   decimal // 기본순서
+                   decimal-leading-zero // 앞에 0이 붙는 십진수
+                   lower-roman // 로마 소문자 표기로 순서를 나타낸다.
+                   upper-roman // 로마 대문자 표기로
+                   lower-alpha // 영 소문자 표기로
+                   upper-alpha // 영 대문자 표기로
+            }
+        </pre>
+
+        <h4>기본 형태</h4>
+        <ol id="ol-style-1">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+
+        <h4>앞에 0이 붙는 십진수</h4>
+        <ol id="ol-style-2">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+
+        <h4>로마 소문자 표기</h4>
+        <ol id="ol-style-3">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+
+        <h4>로마 대문자 표기</h4>
+        <ol id="ol-style-4">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+
+        <h4>영 소문자 표기</h4>
+        <ol id="ol-style-5">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+
+        <h4>영 대문자 표기</h4>
+        <ol id="ol-style-6">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ol>
+
+        <hr>
+
+        <h3>기호 대신 이미지로 목록 표기하기</h3>
+        <pre>선택자 { list-style-image : url("이미지의 경로"); }</pre>
+        <ul id="image-bullet">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>JQuery</li>
+        </ul>
+</body>
+</html>

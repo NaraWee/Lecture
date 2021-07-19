@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>데이터형변환</title>
+    <style>
+        .area1 {
+            border : 1px solid black;
+            height: 200px;
+        } 
+
+        .area2 {
+            border : 1px solid black;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>데이터 형변환</h1>
+    <h3>문자열과 숫자의 '+'연산</h3>
+    <p>문자열 + 숫자 = 문자열이 된다.<br>
+       숫자 + 숫자 + 문자열 = 숫자가 먼저 계산이 되고 뒤의 문자열과 합쳐진다.
+    </p>
+    <button onclick="testPlus();">문자열과 숫자의 '+'연산</button>
+    <br><br>
+    <div id="area1" class="area1"></div>
+    <script>
+        function testPlus(){
+            var area1 = document.getElementById("area1");
+
+            var test1 = 7 + 7;
+            area1.innerHTML += '7 + 7 = ' + test1 + "<br>";
+
+            var test2 = 7 + "7";
+            area1.innerHTML += '7 + "7" = ' + test2 + "<br>";
+            
+            var test3 = "7" + 7;
+            area1.innerHTML += '"7" + 7 = ' + test3 + "<br>";
+
+            var test4 = "7" + "7";
+            area1.innerHTML += '"7" + "7" = ' + test4 + "<br>";
+
+            var test5 = 7 + 7 + "7";
+            area1.innerHTML += '7 + 7 + "7" = ' + test5 + "<br>";
+
+            var test6 = 7 + "7" + 7;
+			area1.innerHTML += '7 + "7" + 7 = ' + test6 + "<br>";
+
+            var test7 = "7" + 7 + 7;
+			area1.innerHTML += '"7" + 7 + 7 = ' + test7 + "<br>";
+
+            var test8 = "7" + (7 + 7);
+			area1.innerHTML += '"7" + (7 + 7) = ' + test8 + "<br>";
+
+        }
+    </script>
+
+    <hr>
+
+    <h3>typeof()연산자</h3>
+    <p>값의 자료형을 확인하는 연산자이다.<br>
+       선언 시 자료형을 지정하지 않기 때문에 변수명만으로 데이터의 자료형을 확인할 수 없으므로<br>
+       변수의 자료형 확인 시 자주 사용한다.
+    </p>
+    <div id="area1" class="area1"></div>
+    <script>
+        function testType(){
+            // 문자열 변수
+            var name = "유승제";
+            var name1 = '유승제1';
+
+            // 숫자 변수
+            var age = 20;
+
+            // 논리 변수
+            var check = true;
+
+            // 배열 변수
+            var hobby = ["축구","농구","야구"];
+
+            // 객체 변수
+            var user = {
+                name1:'유승제', age1:20,id1:'user01'
+            }
+
+            // 함수 변수
+            var testFunction = function testFunction(num1,num2){
+                                  var sum = num1 + num2;
+                                  alert(sum);
+                               }
+            // 정의되지 않은 변수
+            var apple;
+
+            console.log(typeof(name) + " : " + name);
+            console.log(typeof(name1) + " : " + name1);
+            console.log(typeof(age) + " : " + age);
+            console.log(typeof(check) + " : " + check);
+            console.log(typeof(hobby) + " : " + hobby);
+            console.log(typeof(user) + " : " +user);
+            console.log(typeof(testFunction) + " : " + testFunction);
+            console.log(typeof(apple) + " : " + apple);
+        }
+    </script>
+
+    <hr>
+
+    <h3>강제 형변환</h3>
+    <p>Number(), parseInt(), parseFloat() 함수를 이용하여 강제 형변환할 수 있다.</p>
+    <button onclick="castingTest();">casting 테스트</button>
+    <script>
+        function castingTest(){
+            var num1 = 2;
+            var num2 = "3";
+
+            console.log(num1 + num2);
+            console.log(String(num1) + Number(num2));
+            console.log(num1 + parseInt(num2));
+            console.log(num1 + parseFloat(num2));
+
+        }
+    </script>
+
+</body>
+</html>
