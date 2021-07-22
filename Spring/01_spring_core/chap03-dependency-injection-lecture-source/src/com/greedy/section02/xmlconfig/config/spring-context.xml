@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 여기 bean의 태그 클래스 속성은 인터페이스 타입이 아닌 구현 클래스 타입으로 작성해야 한다. -->
+	<bean id="accountGenerator" class="com.greedy.section02.xmlconfig.PersonalAccount">
+		<!-- 기본생성자와 setter를 작성하지 않았기 때문에 매개변수 있는 생성자로 값을 전달해야 한다. -->
+		<constructor-arg index="0" value="20"/>
+		<constructor-arg name="accNo" value="352-123-56787"/>
+		<constructor-arg name="accPwd"><value>1234</value></constructor-arg>
+	</bean>
+	
+	<!-- 생성자를 통한 방법 -->
+<!-- 	<bean id="memberGenerator" class="com.greedy.section02.xmlconfig.MemberDTO">
+		<constructor-arg name="sequence" value="1"/>
+		<constructor-arg name="name" value="홍길동"/>
+		<constructor-arg name="phone" value="010-1234-5677"/>
+		<constructor-arg name="email" value="hong123@greedy.com"/> -->
+		
+		<!-- 다른 bean을 주입하여 생성자에 전달할 때 value 대신 ref를 사용한다. -->
+		<!-- <constructor-arg name="personalAccount">
+			<ref bean="accountGenerator"/>
+		</constructor-arg> -->
+<!-- 		<constructor-arg name="personAccount" ref="accountGenerator"/>
+	</bean> -->
+	
+	<!-- setter(를 이용한 의존성) 주입 -->
+	<bean id="memberGenerator" class="com.greedy.section02.xmlconfig.MemberDTO">
+		<property name="sequence" value="1"/>
+		<property name="name" value="홍길동"/>
+		<property name="phone" value="010-1234-5678"/>
+		<property name="email" value="hong123@greedy.com"/>
+		<property name="personAccount" ref="accountGenerator"/>
+	</bean>
+</beans>
