@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="randomGenerator" class="com.greedy.section02.constinjection.xmlconfig.RandomNumberGenerator">
+		<constructor-arg name="startNum" value="1"/>
+		<constructor-arg name="endNum" value="10"/>
+	</bean>
+	
+	<bean id="makeRandomString" class="com.greedy.section02.constinjection.xmlconfig.MakeRandomString">
+		<constructor-arg index="0" ref="randomGenerator"/>
+	</bean>
+</beans>
