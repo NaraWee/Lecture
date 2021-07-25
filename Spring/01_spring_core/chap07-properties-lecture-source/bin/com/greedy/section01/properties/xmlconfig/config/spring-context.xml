@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- context 스키마를 추가한 후에 작업하자 -->
+	<context:property-placeholder location="product-info.properties"/>
+	
+	<bean id="carpBread" class="com.greedy.section01.properties.xmlconfig.Bread">
+		<constructor-arg name="name" value="${bread.carpbread.name:붕어빵}"></constructor-arg>
+		<constructor-arg name="price" value="${bread.carpbread.price:0}"></constructor-arg>
+		<constructor-arg name="bakedDate" ref="today"></constructor-arg>
+	</bean>
+	
+	<bean id="today" class="java.util.Date" scope="prototype"></bean>
+	
+	<bean id="milk" class="com.greedy.section01.properties.xmlconfig.Beverage">
+		<constructor-arg name="name" value="${beverage.milk.name}"></constructor-arg>
+		<constructor-arg name="price" value="${beverage.milk.price}"></constructor-arg>
+		<constructor-arg name="capacity" value="${beverage.milk.capacity}"></constructor-arg>
+	</bean>
+	
+	<bean id="water" class="com.greedy.section01.properties.xmlconfig.Beverage">
+		<constructor-arg name="name" value="${beverage.water.name}"></constructor-arg>
+		<constructor-arg name="price" value="${beverage.water.price}"></constructor-arg>
+		<constructor-arg name="capacity" value="${beverage.water.capacity}"></constructor-arg>
+	</bean>
+	
+	<bean id="cart" class="com.greedy.section01.properties.xmlconfig.ShoppingCart" scope="prototype"/>
+
+</beans>
